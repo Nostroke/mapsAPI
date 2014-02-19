@@ -10,7 +10,7 @@ include("app/controller.php");
 
 // Helper functions.
 
-function base_url($str)
+function base_url($str = null)
 {
 	$url  = isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http';
 	$url .= '://' . $_SERVER['SERVER_NAME'];
