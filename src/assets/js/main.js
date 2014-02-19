@@ -49,6 +49,7 @@ function append_branch(index,value)
 function gmap_init()
 {
 	var mapOptions = {center:new google.maps.LatLng(-34.397,150.644),zoom:8};
+	
 	map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 }
 
@@ -56,14 +57,16 @@ function set_map()
 {
 	var latlng = $('#branch').val().split(',');
 	
-	map.setCenter(new google.maps.LatLng(Number(latlng[0]),Number(latlng[1])));
+	map.setCenter(new google.maps.LatLng(parseFloat(latlng[0]),parseFloat(latlng[1])));
 	map.setZoom(10);
 	
-	var marker = new google.maps.Marker({position:map.getCenter(),map:map,title:'Click to zoom'});
+	var markerTitle = $('#branch option:selected').text() + '<br><img width="" src="' + base_url('assets/img/fachada.jpg') + '" />';
 	
-	var infowindow = new google.maps.InfoWindow({content:$('#branch option:selected').text()});
+	var marker = new google.maps.Marker({position:map.getCenter(),map:map,title:markerTitle});
 	
-	infowindow.open(map,marker);
+	var infowindow = new google.maps.InfoWindow({content:markerTitle});
+	
+	google.maps.event.addListener(marker,'click',function(){infowindow.open(map,marker);});
 }
 
 // Helper functions.
