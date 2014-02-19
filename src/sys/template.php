@@ -15,9 +15,9 @@
 				<h1>Seleccione</h1>
 				<select id="area"><option>Delegación/Municipio</option></select>
 				<select id="branch"><option>Sucursal</option></select>
-				<div id="gmaps"></div>
+				<div id="map-canvas"></div>
 			</div>
 		</div>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=es"></script>
 	</body>
 </html>
